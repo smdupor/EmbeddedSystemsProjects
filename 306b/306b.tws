@@ -1,0 +1,29 @@
+[HIMDBVersion]
+2.0
+[DATABASE_VERSION]
+"1.0" 
+[CURRENT_PROJECT]
+"306b" 
+[GENERAL_DATA]
+[BREAKPOINTS]
+[OPEN_WORKSPACE_FILES]
+"J:\WorkSpace\306b\itoa.h" 
+"J:\WorkSpace\306b\qsk_lcd.h" 
+"J:\WorkSpace\306b\QSK_LCD.c" 
+"J:\WorkSpace\306b\main.c" 
+"J:\WorkSpace\306b\306b\sect30.inc" 
+"J:\WorkSpace\306b\mcu_init.c" 
+"J:\WorkSpace\306b\sfr26a.inc" 
+"J:\WorkSpace\306b\306b\ncrt0.a30" 
+"J:\WorkSpace\306b\qsk_bsp.h" 
+[WORKSPACE_FILE_STATES]
+"J:\WorkSpace\306b\QSK_LCD.c" "0,0,726,236,0" 
+"J:\WorkSpace\306b\306b\ncrt0.a30" "0,0,726,236,0" 
+"J:\WorkSpace\306b\main.c" "22,29,726,236,0" 
+"J:\WorkSpace\306b\mcu_init.c" "66,87,726,236,0" 
+"J:\WorkSpace\306b\qsk_lcd.h" "88,116,726,236,0" 
+"J:\WorkSpace\306b\qsk_bsp.h" "22,29,726,236,0" 
+"J:\WorkSpace\306b\itoa.h" "66,87,722,232,0" 
+"J:\WorkSpace\306b\306b\sect30.inc" "44,58,726,236,0" 
+"J:\WorkSpace\306b\sfr26a.inc" "88,116,726,236,0" 
+[END]

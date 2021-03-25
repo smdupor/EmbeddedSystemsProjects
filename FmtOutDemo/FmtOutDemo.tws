@@ -1,0 +1,17 @@
+[HIMDBVersion]
+2.0
+[DATABASE_VERSION]
+"1.1" 
+[CURRENT_PROJECT]
+"FmtOutDemo" 
+[GENERAL_DATA]
+[BREAKPOINTS]
+[OPEN_WORKSPACE_FILES]
+"C:\Data\Teaching\IESCode\Fall2007\Demos\FmtOutDemo\FmtOutDemo\main.c" 
+"C:\Data\Teaching\IESCode\Fall2007\Demos\FmtOutDemo\FmtOutDemo\ncrt0.a30" 
+"C:\Data\Teaching\IESCode\Fall2007\Demos\FmtOutDemo\FmtOutDemo\qsk_lcd.c" 
+[WORKSPACE_FILE_STATES]
+"C:\Data\Teaching\IESCode\Fall2007\Demos\FmtOutDemo\FmtOutDemo\main.c" -4 -30 548 781 1 0 
+"C:\Data\Teaching\IESCode\Fall2007\Demos\FmtOutDemo\FmtOutDemo\ncrt0.a30" 44 58 364 515 0 2 
+"C:\Data\Teaching\IESCode\Fall2007\Demos\FmtOutDemo\FmtOutDemo\qsk_lcd.c" 22 29 838 546 0 1 
+[END]

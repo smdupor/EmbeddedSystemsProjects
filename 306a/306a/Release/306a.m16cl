@@ -1,0 +1,10 @@
+-L nc30lib
+-G
+-MS
+-O J:\WorkSpace\306a\306a\Release\306a.x30
+J:\WorkSpace\306a\306a\Release\ncrt0.r30
+J:\WorkSpace\306a\306a\Release\itoa.r30
+J:\WorkSpace\306a\306a\Release\main.r30
+J:\WorkSpace\306a\306a\Release\mcu_init.r30
+J:\WorkSpace\306a\306a\Release\qsk_lcd.r30
+J:\WorkSpace\306a\306a\Release\sfr26a_labels.r30

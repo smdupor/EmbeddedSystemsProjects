@@ -1,0 +1,9 @@
+-L nc30lib
+-G
+-MS
+-O J:\WorkSpace\306c\306c\release\\306c.x30
+-.
+J:\WorkSpace\306c\306c\release\ncrt0_26askp.r30
+J:\WorkSpace\306c\306c\release\sfr26a_labels.r30
+J:\WorkSpace\306c\306c\release\main.r30
+J:\WorkSpace\306c\306c\release\QSK_LCD.r30

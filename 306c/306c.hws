@@ -1,0 +1,34 @@
+[HIMDBVersion]
+2.0
+[DATABASE_VERSION]
+"7.0" 
+[WORKSPACE_DETAILS]
+"306c" "J:\WorkSpace\306c" "J:\WorkSpace\306c\306c.hws" "M16C" "Renesas M16C Standard" 
+[SHARED_WORKSPACE_CONTROL_STATUS]
+"" "" "" 
+"" "" "" 
+[PROJECTS]
+"306c" "J:\WorkSpace\306c\306c" "J:\WorkSpace\306c\306c\306c.hwp" 0 
+[INFORMATION]
+"No workspace information available" 
+[SCRAP]
+[PROJECT_DEPENDENCY]
+[WORKSPACE_PROPERTIES]
+[VCS]
+"" "" "" 0 
+[VCS_PROJECT]
+[HELP_FILES]
+[GENERAL_DATA_PROJECT]
+[SYSMENUTOOLS]
+[USERMENUTOOLS]
+[CUSTOMPLACEHOLDERS]
+[MAKEFILE_BUILD_INFO]
+"$(WORKSPDIR)\make\$(WORKSPNAME).mak" "" 0 0 
+[VD_CONFIGURATION_OPTIONS]
+"ACTIVE_DESKTOP" "0" 
+[VD_CONFIGURATIONS]
+"0" "Default1" "1" 
+"1" "Default2" "1" 
+"2" "Default3" "1" 
+"3" "Default4" "1" 
+[END]

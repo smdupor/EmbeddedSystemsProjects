@@ -1,0 +1,223 @@
+##########################################
+# (1) LINK INFORMATION                   #
+##########################################
+J:\Renesas\NC30WA\V530R02\bin\ln30.exe @J:\WorkSpace\306b\306b\Debug\306b.m16cl
+
+# LINK FILE INFORMATION
+NCRT0 (J:\WorkSpace\306b\306b\Debug\ncrt0.r30)
+	Jan 24 14:40:54 2008
+
+ITOA (J:\WorkSpace\306b\306b\Debug\itoa.r30)
+	Jan 24 14:40:53 2008
+
+MAIN (J:\WorkSpace\306b\306b\Debug\main.r30)
+	Jan 24 14:40:54 2008
+
+MCU_INIT (J:\WorkSpace\306b\306b\Debug\mcu_init.r30)
+	Jan 24 14:40:53 2008
+
+QSK_LCD (J:\WorkSpace\306b\306b\Debug\QSK_LCD.r30)
+	Jan 24 14:40:53 2008
+
+SFR26A_LABELS (J:\WorkSpace\306b\306b\Debug\sfr26a_labels.r30)
+	Jan 24 14:40:54 2008
+
+BCOPY (J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:17:52 2005
+
+BZERO (J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:17:52 2005
+
+MALLOC (J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:18:01 2005
+
+MEMCPY (J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:18:02 2005
+
+MEMSET (J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:18:02 2005
+
+_I4DIV (J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:17:47 2005
+
+
+##########################################
+# (2) SECTION INFORMATION                #
+##########################################
+# SECTION                        ATR TYPE    START  LENGTH ALIGN MODULENAME
+data_SE                          ABS DATA    000400 000000       NCRT0
+bss_SE                           REL DATA    000400 000000 2     NCRT0
+data_SO                          REL DATA    000400 000000       NCRT0
+bss_SO                           REL DATA    000400 000000       NCRT0
+data_NE                          REL DATA    000400 000000 2     NCRT0
+                                 REL DATA    000400 000010       MALLOC
+bss_NE                           REL DATA    000410 000000 2     NCRT0
+                                 REL DATA    000410 00000A       ITOA
+                                 REL DATA    00041A 00000C       MALLOC
+data_NO                          REL DATA    000426 000000       NCRT0
+                                 REL DATA    000426 000001       QSK_LCD
+bss_NO                           REL DATA    000427 000000       NCRT0
+stack                            REL DATA    000427 000600       NCRT0
+heap                             REL DATA    000A27 000300       NCRT0
+rom_NE                           REL ROMDATA 000D28 000000 2     NCRT0
+rom_NO                           REL ROMDATA 000D28 000000       NCRT0
+data_FE                          ABS DATA    010000 000000       NCRT0
+bss_FE                           REL DATA    010000 000000 2     NCRT0
+data_FO                          REL DATA    010000 000000       NCRT0
+bss_FO                           REL DATA    010000 000000       NCRT0
+rom_FE                           ABS ROMDATA 0F0000 000000       NCRT0
+                                 REL ROMDATA 0F0000 000040       QSK_LCD
+rom_FO                           REL ROMDATA 0F0040 000000       NCRT0
+data_SEI                         REL ROMDATA 0F0040 000000       NCRT0
+data_SOI                         REL ROMDATA 0F0040 000000       NCRT0
+data_NEI                         REL ROMDATA 0F0040 000000       NCRT0
+                                 REL ROMDATA 0F0040 000010       MALLOC
+data_NOI                         REL ROMDATA 0F0050 000000       NCRT0
+                                 REL ROMDATA 0F0050 000001       QSK_LCD
+data_FEI                         REL ROMDATA 0F0051 000000       NCRT0
+data_FOI                         REL ROMDATA 0F0051 000000       NCRT0
+switch_table                     REL ROMDATA 0F0051 000000       NCRT0
+program                          REL CODE    0F0051 000000       NCRT0
+                                 REL CODE    0F0052 0000AC 2     ITOA
+                                 REL CODE    0F00FE 000009 2     MAIN
+                                 REL CODE    0F0108 00004C 2     MCU_INIT
+                                 REL CODE    0F0154 0001E6 2     QSK_LCD
+                                 REL CODE    0F033A 000035 2     BCOPY
+                                 REL CODE    0F0370 000028 2     BZERO
+                                 REL CODE    0F0398 000555 2     MALLOC
+                                 REL CODE    0F08EE 000044 2     MEMCPY
+                                 REL CODE    0F0932 000034 2     MEMSET
+                                 REL CODE    0F0966 000083 2     _I4DIV
+interrupt                        REL CODE    0F09E9 000000       NCRT0
+                                 REL CODE    0F09E9 000117       NCRT0
+program_S                        REL CODE    0F0B00 000000       NCRT0
+vector                           ABS ROMDATA 0FFD00 000100       NCRT0
+svector                          ABS ROMDATA 0FFE00 000000       NCRT0
+fvector                          ABS ROMDATA 0FFFFC 000004       NCRT0
+SFR_NO                           ABS DATA    000000 000400       SFR26A_LABELS
+# Total -------------------------------------------------------------------
+                                     DATA           000D27(0003367) Byte(s)
+                                     ROMDATA        000155(0000341) Byte(s)
+                                     CODE           000AAF(0002735) Byte(s)
+
+##########################################
+# (3) GLOBAL LABEL INFORMATION           #
+##########################################
+$DisplayString     0f0200  $LCD_write         0f025e  $calloc            0f0398
+$exit              0f0afd  $getmem            0f04d4  $itoa              0f0052
+$malloc            0f040e  $memset            0f0932  $realloc           0f0460
+$rlsmem            0f064a  $utoa              0f00b8  _DisplayDelay      0f030c
+_InitDisplay       0f0154  __i4div            0f0966  __mbase            00041a
+__memt             000408  __mnext            00041e  __msize            000422
+__pool             000400  _bcopy             0f033a  _bzero             0f0370
+_exit              0f0afd  _free              0f03d6  _logo_map          0f0000
+_main              0f00fe  _mcu_init          0f0108  _memcpy            0f08ee
+ad0                0003c0  ad1                0003c2  ad2                0003c4
+ad3                0003c6  ad4                0003c8  ad5                0003ca
+ad6                0003cc  ad7                0003ce  adcon0             0003d6
+adcon1             0003d7  adcon2             0003d4  adic               00004e
+adstat0            0003d3  adtrgcon           0003d2  aier               000009
+bcnic              00004a  cm0                000006  cm1                000007
+cm2                00000c  cpsrf              000381  crcd               0003bc
+crcin              0003be  crcmr              0003b6  crcsar             0003b4
+d4int              00001f  dar0               000024  dar1               000034
+dm0con             00002c  dm0ic              00004b  dm0sl              0003b8
+dm1con             00003c  dm1ic              00004c  dm1sl              0003ba
+dtt                00034c  dummy_int          0f0aff  fmr0               0001b7
+fmr1               0001b5  fmr4               0001b3  ictb2              00034d
+idb0               00034a  idb1               00034b  ifsr               00035f
+ifsr2a             00035e  int0ic             00005d  int1ic             00005e
+int2ic             00005f  int3ic             000044  int4ic             000049
+int5ic             000048  invc0              000348  invc1              000349
+kupic              00004d  nddr               00033e  onsf               000382
+p1                 0003e1  p10                0003f4  p17ddr             00033f
+p6                 0003ec  p7                 0003ed  p8                 0003f0
+p9                 0003f1  pacr               00025d  pclkr              00025e
+pcr                0003ff  pd1                0003e3  pd10               0003f6
+pd6                0003ee  pd7                0003ef  pd8                0003f2
+pd9                0003f3  pdrf               00034e  pfcr               000358
+plc0               00001c  pm0                000004  pm1                000005
+pm2                00001e  prcr               00000a  pur0               0003fc
+pur1               0003fd  pur2               0003fe  rmad0              000010
+rmad1              000014  rocr               00025c  s0ric              000052
+s0tic              000051  s1ric              000054  s1tic              000053
+s2ric              000050  s2tic              00004f  sar0               000020
+sar1               000030  start              0f09e9  ta0                000386
+ta0ic              000055  ta0mr              000396  ta1                000388
+ta11               000342  ta1ic              000056  ta1mr              000397
+ta2                00038a  ta21               000344  ta2ic              000057
+ta2mr              000398  ta3                00038c  ta3ic              000058
+ta3mr              000399  ta4                00038e  ta41               000346
+ta4ic              000059  ta4mr              00039a  tabsr              000380
+tb0                000390  tb0ic              00005a  tb0mr              00039b
+tb1                000392  tb1ic              00005b  tb1mr              00039c
+tb2                000394  tb2ic              00005c  tb2mr              00039d
+tb2sc              00039e  tcr0               000028  tcr1               000038
+tprc               00025a  trgsr              000383  u0brg              0003a1
+u0c0               0003a4  u0c1               0003a5  u0mr               0003a0
+u0rb               0003a6  u0tb               0003a2  u1brg              0003a9
+u1c0               0003ac  u1c1               0003ad  u1mr               0003a8
+u1rb               0003ae  u1tb               0003aa  u2brg              000379
+u2c0               00037c  u2c1               00037d  u2mr               000378
+u2rb               00037e  u2smr              000377  u2smr2             000376
+u2smr3             000375  u2smr4             000374  u2tb               00037a
+ucon               0003b0  udf                000384  vcr1               000019
+vcr2               00001a  wdc                00000f  wdts               00000e
+
+##########################################
+# (4) GLOBAL EQU SYMBOL INFORMATION      #
+##########################################
+__SB__           00000400  
+
+##########################################
+# (5) GLOBAL EQU BIT-SYMBOL INFORMATION  #
+##########################################
+
+##########################################
+# (6) LOCAL LABEL INFORMATION            #
+##########################################
+@ NCRT0 ( J:\WorkSpace\306b\306b\Debug\ncrt0.r30 )
+@ ITOA ( J:\WorkSpace\306b\306b\Debug\itoa.r30 )
+@ MAIN ( J:\WorkSpace\306b\306b\Debug\main.r30 )
+@ MCU_INIT ( J:\WorkSpace\306b\306b\Debug\mcu_init.r30 )
+@ QSK_LCD ( J:\WorkSpace\306b\306b\Debug\QSK_LCD.r30 )
+@ SFR26A_LABELS ( J:\WorkSpace\306b\306b\Debug\sfr26a_labels.r30 )
+@ BCOPY ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ BZERO ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MALLOC ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MEMCPY ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MEMSET ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ _I4DIV ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+
+##########################################
+# (7) LOCAL EQU SYMBOL INFORMATION       #
+##########################################
+@ NCRT0 ( J:\WorkSpace\306b\306b\Debug\ncrt0.r30 )
+@ ITOA ( J:\WorkSpace\306b\306b\Debug\itoa.r30 )
+@ MAIN ( J:\WorkSpace\306b\306b\Debug\main.r30 )
+@ MCU_INIT ( J:\WorkSpace\306b\306b\Debug\mcu_init.r30 )
+@ QSK_LCD ( J:\WorkSpace\306b\306b\Debug\QSK_LCD.r30 )
+@ SFR26A_LABELS ( J:\WorkSpace\306b\306b\Debug\sfr26a_labels.r30 )
+@ BCOPY ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ BZERO ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MALLOC ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MEMCPY ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MEMSET ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ _I4DIV ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+
+##########################################
+# (8) LOCAL EQU BIT-SYMBOL INFORMATION   #
+##########################################
+@ NCRT0 ( J:\WorkSpace\306b\306b\Debug\ncrt0.r30 )
+@ ITOA ( J:\WorkSpace\306b\306b\Debug\itoa.r30 )
+@ MAIN ( J:\WorkSpace\306b\306b\Debug\main.r30 )
+@ MCU_INIT ( J:\WorkSpace\306b\306b\Debug\mcu_init.r30 )
+@ QSK_LCD ( J:\WorkSpace\306b\306b\Debug\QSK_LCD.r30 )
+@ SFR26A_LABELS ( J:\WorkSpace\306b\306b\Debug\sfr26a_labels.r30 )
+@ BCOPY ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ BZERO ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MALLOC ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MEMCPY ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MEMSET ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ _I4DIV ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+

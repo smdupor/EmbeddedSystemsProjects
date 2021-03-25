@@ -1,0 +1,8 @@
+-L nc30lib
+-G
+-MS
+-O J:\WorkSpace\306a\306a\Debug_M16C_R8C_FoUSB_UART\306a.x30
+J:\WorkSpace\306a\306a\Debug_M16C_R8C_FoUSB_UART\main.r30
+J:\WorkSpace\306a\306a\Debug_M16C_R8C_FoUSB_UART\mcu_init.r30
+J:\WorkSpace\306a\306a\Debug_M16C_R8C_FoUSB_UART\ncrt0_qsk26a_demo.r30
+J:\WorkSpace\306a\306a\Debug_M16C_R8C_FoUSB_UART\sfr26a_labels.r30

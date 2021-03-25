@@ -1,0 +1,7 @@
+-L nc30lib
+-G
+-MS
+-O J:\WorkSpace\Tutorial\FoUSB_UART\M16C\Tutorial\tutorial\debug\Tutorial.x30
+J:\WorkSpace\Tutorial\FoUSB_UART\M16C\Tutorial\tutorial\debug\ncrt0.r30
+J:\WorkSpace\Tutorial\FoUSB_UART\M16C\Tutorial\tutorial\debug\sort.r30
+J:\WorkSpace\Tutorial\FoUSB_UART\M16C\Tutorial\tutorial\debug\tutorial.r30

@@ -1,0 +1,241 @@
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Thu Jan 24 14:07:15 2008  PAGE 001
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4
+
+     1                                  ;*************************************************************************** ;
+     2                                  ; C Start up file for M16C/Tiny SKP
+     3                                  ; Copyright 2004 Renesas Technology America, Inc.
+     4                                  ; All Rights Reserved.
+     5                                  ;
+     6                                  ; ncrt0_26askp.a30 : NC30 startup program
+     7                                  ;
+     8                                  ; Content: Customized startup program for M16C/26A (M30260) microcontroller
+     9                                  ;		   using the NC30 compiler.
+    10                                  ; This program is applicable when using the basic I/O library
+    11                                  ;       		
+    12                                  ;***************************************************************************
+    13                                  
+    14                                  ; Revision History
+    15                                  ; 0.1  modified standard startup files for skp
+    16                                  ; 1.0  SKP release 
+    17                                  
+    18                                  ;***************************************************************************
+    19                                  
+    20                                  ;---------------------------------------------------------------------
+    21                                  ; Section allocation and definitions
+    22                                  ;---------------------------------------------------------------------
+    23                                  	.list OFF
+    24                                  	.list ON
+    25                                  
+    26                                  ;====================================================================
+    27                                  ; Interrupt section start
+    28                                  ;---------------------------------------------------------------------
+    29                                    .insf  start,S,0
+    30                                    .glb  start
+    31                                    .section  interrupt
+    32                                  
+    33  00000                           start:
+    34                                  ;---------------------------------------------------------------------
+    35                                  ; After reset, program execution starts here.
+    36                                  ; Upon reset, the processor clock (BLCK) defaults to divided by 8 (f/8). 
+    37                                  ;---------------------------------------------------------------------
+    38  00000  EB400000r                  ldc  #istack_top,  isp  ;set istack pointer
+    39                                  
+    40                                  ;========================================================================
+    41                                  ; ********************* NOTE: CHANGING BCLK SPEED HERE ******************
+    42                                  ; SETTING clock main crystal.  BCLK  divided by 1 
+    43                                  ; AFTER RESET, BCLK DEFAULTS TO (f2rosc/2)/8 = 125kHz.
+    44                                  ;  Also note that the debug kernel modifies reset BCLK 
+    45                                  ;  condition to (f3rosc/2)/8 = 1MHz when running KD30.
+    46                                  ;========================================================================
+    47  00004  7E9F5000                   bset  0,000Ah     ; Enable writes to clock control registers
+    48  00008  7E8F6100                   bclr  1,000Ch     ; Switch from Ring osc to Xin (10 Mhz/8)
+    49  0000C  C7140700              S    mov.b  #20,0007h  ; Set CM16 & CM17 to 0, divide-by-1 mode
+    50  00010  C7080600              S    mov.b  #08h,0006h ; Enable CM16 & CM17, clock is divide-by-1 mode 
+    51  00014  7E8F5000                   bclr  0,000Ah     ; Disable writes to clock register                 
+    52                                  
+    53                                  ;---------------------------------------------------------------------
+    54                                  ;  This section sets the MCU package: 42-pin or 48-pin. To change to
+    55                                  ;   42-pin package, change mov.b #04,025Dh to mov.b #01,025Dh.
+    56                                  ;--------------------------------------------------------------------
+    57  00018  7E9F5200                   bset  2,000Ah     ; Enable writes to the Pin Assignment Control reg(PACR)
+    58  0001C  C7045D02              S    mov.b  #04h,025Dh ; Use this line of code for 48 pin package
+    59                                  
+    60  00020  EB74                       fset U
+    61  00022  EB500000r                  ldc  #stack_top,  sp  ;set user stack pointer 
+    62  00026  EB75                       fclr U
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Thu Jan 24 14:07:15 2008  PAGE 002
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4
+
+    63                                  
+    64  00028  EB600004                   ldc  #data_SE_top,  sb  ;set sb register 
+    65  0002C  EB200F00                   ldintb  #VECTOR_ADR
+               EB1000F8 
+    66                                  
+    67                                  ;====================================================================
+    68                                  ; Variable area initialization. This code uses macro's (see sect30_26askp.inc)  
+    69                                  ; for initializing C variables. Clears global variables, 
+    70                                  ; sets initialized variables, etc.
+    71                                  ;--------------------------------------------------------------------
+    72                                  ; bss zero clear
+    73                                  ;--------------------------------------------------------------------
+    74                                    N_BZERO  bss_SE_top,bss_SE
+    75  00034  B4                1 M Z    mov.b  #00H, R0L
+    76  00035  AA0000r           1 M S    mov.w  #(bss_SE_top & 0FFFFH), A1
+    77  00038  75C30000r         1 M      mov.w  #sizeof bss_SE , R3
+    78  0003C  7CEA              1 M      sstr.b  
+    79                           1 M      .endm
+    80                                    N_BZERO  bss_SO_top,bss_SO
+    81  0003E  B4                1 M Z    mov.b  #00H, R0L
+    82  0003F  AA0000r           1 M S    mov.w  #(bss_SO_top & 0FFFFH), A1
+    83  00042  75C30000r         1 M      mov.w  #sizeof bss_SO , R3
+    84  00046  7CEA              1 M      sstr.b  
+    85                           1 M      .endm
+    86                                    N_BZERO  bss_NE_top,bss_NE
+    87  00048  B4                1 M Z    mov.b  #00H, R0L
+    88  00049  AA0000r           1 M S    mov.w  #(bss_NE_top & 0FFFFH), A1
+    89  0004C  75C30000r         1 M      mov.w  #sizeof bss_NE , R3
+    90  00050  7CEA              1 M      sstr.b  
+    91                           1 M      .endm
+    92                                    N_BZERO  bss_NO_top,bss_NO
+    93  00052  B4                1 M Z    mov.b  #00H, R0L
+    94  00053  AA0000r           1 M S    mov.w  #(bss_NO_top & 0FFFFH), A1
+    95  00056  75C30000r         1 M      mov.w  #sizeof bss_NO , R3
+    96  0005A  7CEA              1 M      sstr.b  
+    97                           1 M      .endm
+    98                                  
+    99                                  ;---------------------------------------------------------------------
+   100                                  ; initialize data section
+   101                                  ;---------------------------------------------------------------------
+   102                                    N_BCOPY  data_SEI_top,data_SE_top,data_SE
+   103  0005C  A20000r           1 M S    mov.w  #(data_SEI_top & 0FFFFH),A0
+   104  0005F  74C300r           1 M      mov.b  #(data_SEI_top >>16),R1H
+   105  00062  AA0004            1 M S    mov.w  #data_SE_top ,A1
+   106  00065  75C30000r         1 M      mov.w  #sizeof data_SE , R3
+   107  00069  7CE8              1 M      smovf.b
+   108                           1 M      .endm
+   109                                    N_BCOPY  data_SOI_top,data_SO_top,data_SO
+   110  0006B  A20000r           1 M S    mov.w  #(data_SOI_top & 0FFFFH),A0
+   111  0006E  74C300r           1 M      mov.b  #(data_SOI_top >>16),R1H
+   112  00071  AA0000r           1 M S    mov.w  #data_SO_top ,A1
+   113  00074  75C30000r         1 M      mov.w  #sizeof data_SO , R3
+   114  00078  7CE8              1 M      smovf.b
+   115                           1 M      .endm
+   116                                    N_BCOPY  data_NEI_top,data_NE_top,data_NE
+   117  0007A  A20000r           1 M S    mov.w  #(data_NEI_top & 0FFFFH),A0
+   118  0007D  74C300r           1 M      mov.b  #(data_NEI_top >>16),R1H
+   119  00080  AA0000r           1 M S    mov.w  #data_NE_top ,A1
+   120  00083  75C30000r         1 M      mov.w  #sizeof data_NE , R3
+   121  00087  7CE8              1 M      smovf.b
+   122                           1 M      .endm
+   123                                    N_BCOPY  data_NOI_top,data_NO_top,data_NO
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Thu Jan 24 14:07:15 2008  PAGE 003
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4
+
+   124  00089  A20000r           1 M S    mov.w  #(data_NOI_top & 0FFFFH),A0
+   125  0008C  74C300r           1 M      mov.b  #(data_NOI_top >>16),R1H
+   126  0008F  AA0000r           1 M S    mov.w  #data_NO_top ,A1
+   127  00092  75C30000r         1 M      mov.w  #sizeof data_NO , R3
+   128  00096  7CE8              1 M      smovf.b
+   129                           1 M      .endm
+   130                                  
+   131                                  ;====================================================================
+   132                                  ; heap area initialization 
+   133                                  ;---------------------------------------------------------------------
+   134                                  .if __HEAP__ != 1
+   135                                  
+   136                                    HEAPINIT
+   137                           1 M      .glb  __mbase
+   138                           1 M      .glb  __mnext
+   139                           1 M      .glb  __msize
+   140  00098  75CF0000r0000r    1 M      mov.w  #(heap_top&0FFFFH), __mbase
+   141  0009E  75CF0000r0000r    1 M      mov.w  #(heap_top>>16), __mbase+2
+   142  000A4  75CF0000r0000r    1 M      mov.w  #(heap_top&0FFFFH), __mnext
+   143  000AA  75CF0000r0000r    1 M      mov.w  #(heap_top>>16), __mnext+2
+   144  000B0  75CF0000r0003     1 M      mov.w  #(HEAPSIZE&0FFFFH), __msize
+   145  000B6  D90F0000r         1 M Q    mov.w  #(HEAPSIZE>>16), __msize+2
+   146                           1 M      .endm
+   147                                  
+   148                                  .endif
+   149                                  
+   150                                  ;====================================================================
+   151                                  ; Initialize standard I/O
+   152                                  ; This function is not called when using the SKP because the init.c function
+   153                                  ; initializes UART1 which is used by the in-circuit debugger.  To use this
+   154                                  ; function first modify the init.c so the UART1 is not initialized
+   155                                  ;---------------------------------------------------------------------
+   156                                  ;.if __STANDARD_IO__ != 1
+   157                                  ;  .glb  _init
+   158                                  ;  .call  _init,G
+   159                                  ;  jsr.a  _init
+   160                                  ;.endif
+   161                                  
+   162                                  ;====================================================================
+   163                                  ; Call main() function
+   164                                  ;---------------------------------------------------------------------
+   165  000BA  EB700000                   ldc  #0h,fb  ; for debugger
+   166                                     
+   167                                    .glb  _main
+   168  000BE  FD000000r             A    jsr.a  _main
+   169                                  
+   170                                  
+   171                                  ;====================================================================
+   172                                  ; exit() function
+   173                                  ;---------------------------------------------------------------------
+   174                                    .glb  _exit
+   175                                    .glb  $exit
+   176  000C2                           _exit:         ; End program
+   177  000C2                           $exit:
+   178  000C2  FEFF                  B    jmp  _exit
+   179                                    .einsf
+   180                                  ;====================================================================
+   181                                  ; dummy interrupt function. Used for all unassigned interrupts (see vector
+   182                                  ; declaration of sect30_26askp.inc).
+   183                                  ;---------------------------------------------------------------------
+   184  000C4                           dummy_int:
+   185  000C4  FB                         reit
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Thu Jan 24 14:07:15 2008  PAGE 004
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4
+
+   186                                  
+   187                                    .end
+
+Information List
+
+TOTAL ERROR(S)    00000
+TOTAL WARNING(S)  00000
+TOTAL LINE(S)     00187   LINES
+
+Section List
+
+Attr        Size          Name
+DATA     0000000(00000H)  data_SE
+DATA     0000000(00000H)  bss_SE
+DATA     0000000(00000H)  data_SO
+DATA     0000000(00000H)  bss_SO
+DATA     0000000(00000H)  data_NE
+DATA     0000000(00000H)  bss_NE
+DATA     0000000(00000H)  data_NO
+DATA     0000000(00000H)  bss_NO
+DATA     0001536(00600H)  stack
+DATA     0000768(00300H)  heap
+ROMDATA  0000000(00000H)  rom_NE
+ROMDATA  0000000(00000H)  rom_NO
+ROMDATA  0000000(00000H)  rom_FE
+ROMDATA  0000000(00000H)  rom_FO
+ROMDATA  0000000(00000H)  data_SEI
+ROMDATA  0000000(00000H)  data_SOI
+ROMDATA  0000000(00000H)  data_NEI
+ROMDATA  0000000(00000H)  data_NOI
+ROMDATA  0000000(00000H)  data_FEI
+ROMDATA  0000000(00000H)  data_FOI
+ROMDATA  0000000(00000H)  switch_table
+CODE     0000000(00000H)  program
+CODE     0000000(00000H)  interrupt
+CODE     0000000(00000H)  program_S
+ROMDATA  0000136(00088H)  vector
+CODE     0000036(00024H)  fvector
+CODE     0000197(000C5H)  interrupt

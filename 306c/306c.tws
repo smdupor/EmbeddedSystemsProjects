@@ -1,0 +1,25 @@
+[HIMDBVersion]
+2.0
+[DATABASE_VERSION]
+"1.0" 
+[CURRENT_PROJECT]
+"306c" 
+[GENERAL_DATA]
+[BREAKPOINTS]
+[OPEN_WORKSPACE_FILES]
+"J:\WorkSpace\306c\306c\main.c" 
+"J:\WorkSpace\306c\306c\qsk_bsp.h" 
+"J:\WorkSpace\306b\QSK_LCD.c" 
+"J:\WorkSpace\306c\306c\sfr26a_labels.a30" 
+"J:\WorkSpace\306c\306c\sect30_26askp.inc" 
+"J:\WorkSpace\306c\306c\ncrt0_26askp.a30" 
+"J:\WorkSpace\306b\qsk_bsp.h" 
+[WORKSPACE_FILE_STATES]
+"J:\WorkSpace\306b\QSK_LCD.c" "44,58,608,243,0" 
+"J:\WorkSpace\306c\306c\main.c" "-4,-30,960,683,1" 
+"J:\WorkSpace\306c\306c\sfr26a_labels.a30" "22,29,608,243,0" 
+"J:\WorkSpace\306c\306c\qsk_bsp.h" "66,87,608,243,0" 
+"J:\WorkSpace\306b\qsk_bsp.h" "0,0,798,416,0" 
+"J:\WorkSpace\306c\306c\ncrt0_26askp.a30" "88,116,608,243,0" 
+"J:\WorkSpace\306c\306c\sect30_26askp.inc" "0,0,608,243,0" 
+[END]

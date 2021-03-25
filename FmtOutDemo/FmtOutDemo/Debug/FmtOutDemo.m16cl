@@ -1,0 +1,8 @@
+-L "nc30lib"
+-G
+-MS
+-O "C:\Data\Teaching\IESCode\Fall2007\Demos\FmtOutDemo\FmtOutDemo\Debug\FmtOutDemo.x30"
+"C:\Data\Teaching\IESCode\Fall2007\Demos\FmtOutDemo\FmtOutDemo\Debug\ncrt0.r30"
+"C:\Data\Teaching\IESCode\Fall2007\Demos\FmtOutDemo\FmtOutDemo\Debug\main.r30"
+"C:\Data\Teaching\IESCode\Fall2007\Demos\FmtOutDemo\FmtOutDemo\Debug\mcu_init.r30"
+"C:\Data\Teaching\IESCode\Fall2007\Demos\FmtOutDemo\FmtOutDemo\Debug\qsk_lcd.r30"

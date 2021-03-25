@@ -1,0 +1,211 @@
+[HIMDBVersion]
+2.0
+[DATABASE_VERSION]
+"2.7" 
+[PROJECT_DETAILS]
+"306c" "J:\WorkSpace\306c\306c" "J:\WorkSpace\306c\306c\306c.hwp" "M16C" "Renesas M16C Standard" "Application" "" "" 
+[INFORMATION]
+"No project information available" 
+[TOOL_CHAIN]
+"Renesas M16C Standard Toolchain" "5.30.02" 
+[CONFIGURATIONS]
+"Release" "J:\WorkSpace\306c\306c\release" 
+[BUILD_PHASES]
+"Renesas M16C C Compiler" 1 
+"Renesas M16C Librarian" 1 
+"Renesas M16C Assembler" 1 
+"Renesas M16C Stype Converter" 1 
+"Renesas M16C Linker" 1 
+"Renesas M16C Jump table Composer" 1 
+"Renesas M16C Configurator" 1 
+[DEFINITION_PARSERS]
+[TOOL_ENVIRONMENT]
+[EXTENSIONS]
+"Absolute file" "X30" 
+"Linkage map file" "MAP" 
+"C header file" "H" 
+"C source file" "C" 
+"Hex file" "HEX" 
+"S-Record file" "MOT" 
+"Relocatable file" "R30" 
+"Assembly source file" "A30" 
+"Preprocessed C source file" "I" 
+"C list file" "LST" 
+"Library file" "LIB" 
+"Configuration file" "CFG" 
+"Assembly include file" "INC" 
+"Assembly list file" "LIS" 
+[FILE_GROUPS]
+"Absolute file" "BIN" "NONE" "" 
+"Linkage map file" "TEXT" "EDITOR" "" 
+"C header file" "TEXT" "EDITOR" "" 
+"C source file" "TEXT" "EDITOR" "" 
+"Hex file" "TEXT" "EDITOR" "" 
+"S-Record file" "TEXT" "EDITOR" "" 
+"Relocatable file" "BIN" "NONE" "" 
+"Assembly source file" "TEXT" "EDITOR" "" 
+"Preprocessed C source file" "TEXT" "EDITOR" "" 
+"C list file" "TEXT" "EDITOR" "" 
+"Library file" "BIN" "NONE" "" 
+"Configuration file" "TEXT" "EDITOR" "" 
+"Assembly include file" "TEXT" "EDITOR" "" 
+"Assembly list file" "TEXT" "EDITOR" "" 
+[ASSOCIATED_APPLICATIONS]
+[TOOLCHAIN_PHASE]
+"Renesas M16C C Compiler" 
+"Renesas M16C Librarian" 
+"Renesas M16C Assembler" 
+"Renesas M16C Stype Converter" 
+"Renesas M16C Linker" 
+"Renesas M16C Jump table Composer" 
+"Renesas M16C Configurator" 
+[UTILITY_PHASE]
+[CUSTOM_PHASES]
+[CUSTOM_PHASE_INPUT_GROUP]
+[BUILD_ORDER]
+"Renesas M16C C Compiler" 1 
+"Renesas M16C Assembler" 1 
+"Renesas M16C Linker" 1 
+"Renesas M16C Stype Converter" 1 
+"Renesas M16C Librarian" 0 
+"Renesas M16C Configurator" 0 
+"Renesas M16C Jump table Composer" 0 
+[BUILD_PHASE_DETAILS]
+"Renesas M16C C Compiler" "C source file" 1 
+"Renesas M16C Librarian" "Relocatable file" 0 
+"Renesas M16C Assembler" "Assembly source file" 1 
+"Renesas M16C Stype Converter" "Absolute file" 0 
+"Renesas M16C Linker" "Relocatable file" 0 
+"Renesas M16C Jump table Composer" "" 0 
+"Renesas M16C Configurator" "Configuration file" 0 
+[BUILD_FILE_ORDER_C source file]
+"Renesas M16C C Compiler" 1 
+[BUILD_FILE_ORDER_Assembly source file]
+"Renesas M16C Assembler" 1 
+[SCRAP]
+"Project Generator Setup File" "" 
+[MAPPINGS]
+"Relocatable file" "Renesas M16C Librarian" "Renesas M16C C Compiler" 
+"Assembly source file" "Renesas M16C Assembler" "Renesas M16C C Compiler" 
+"Relocatable file" "Renesas M16C Linker" "Renesas M16C C Compiler" 
+"Relocatable file" "Renesas M16C Librarian" "Renesas M16C Assembler" 
+"Relocatable file" "Renesas M16C Linker" "Renesas M16C Assembler" 
+"Absolute file" "Renesas M16C Stype Converter" "Renesas M16C Linker" 
+[PROJECT_FILES]
+"J:\WorkSpace\306c\306c\ncrt0_26askp.a30" "User" "Assembly source file" 2 
+"J:\WorkSpace\306c\306c\sfr26a_labels.a30" "User" "Common" 2 
+"J:\WorkSpace\306b\qsk_lcd.h" "User" "C header file" 2 
+"J:\WorkSpace\306b\qsk_bsp.h" "User" "C header file" 2 
+"J:\WorkSpace\306b\QSK_LCD.c" "User" "C source file" 2 
+"J:\WorkSpace\306c\306c\main.c" "User" "C source file" 2 
+"J:\WorkSpace\306c\306c\main_qsk26a_template.c" "User" "C source file" 2 
+[FOLDER]
+"C header file" "C header file" 
+"C source file" "C source file" 
+"Common" "Common" 
+"Assembly source file" "Assembly source file" 
+[GENERAL_DATA_PROJECT]
+"FDT_BaseDevice" "" 
+"FDT_Comments" "" 
+"FDT_Interface" "" 
+"FDT_UseDefaultBaudRate" "FALSE" 
+"FDT_ResetPinOutputs" "00000000" 
+"FDT_ConnectionResetSuppression" "FFFFFFFF" 
+"FDT_ResetOnDisconnect" "No" 
+"FDT_ResetPinSettings" "00000000" 
+"USE_CUSTOM_LINKAGE_ORDER" "1" 
+"FDT_KernelPath" "" 
+"FDT_KernelResident" "FALSE" 
+"FDT_UPMPinSettings" "00000000" 
+"FDT_CKM" "0" 
+"FDT_ClockMode" "0" 
+"FDT_UserPinOutputs" "00000000" 
+"FDT_UserPinSettings" "00000000" 
+"FDT_UseInternalKernel" "FALSE" 
+"FDT_Port" "" 
+"FDT_MessageLevel" "0" 
+"FDT_CKP" "0" 
+"FDT_BootMode" "FALSE" 
+"FDT_UserBootArea" "FALSE" 
+"FDT_BaudRate" "" 
+"FDT_PinOutputs" "00000000" 
+"FDT_Protection" "0" 
+"FDT_Protocol" "" 
+"FDT_PinSettings" "00000000" 
+"FDT_ClockSync" "00000000" 
+"FDT_ReinterrogateGenericDevice" "No" 
+"FDT_Device" "" 
+"FDT_AutoConnect" "0" 
+"FDT_Frequency" "0.0000" 
+"FDT_DoReadbackVerification" "No" 
+[ON_DEMAND_COMPONENTS_LOADED]
+[SYNC_SESSION_NAMES]
+[SESSIONS]
+"DefaultSession" "J:\WorkSpace\306c\306c\defaultsession.hsf" 0 
+"M16C_R8C_FoUSB" "J:\WorkSpace\306c\306c\m16c_r8c_fousb.hsf" 0 
+[GENERAL_DATA_SESSION_DefaultSession]
+[GENERAL_DATA_SESSION_M16C_R8C_FoUSB]
+[OPTIONS_Release_Renesas M16C C Compiler]
+"J:\WorkSpace\306b\QSK_LCD.c" "0e2c46dd79e58c10" 1 
+"J:\WorkSpace\306c\306c\main_qsk26a_template.c" "0a7d5b977ce98c10" 1 
+"J:\WorkSpace\306c\306c\main.c" "0ccbcd775ce98c10" 1 
+"C source file" "07f8b7db41145c10" 1 
+[OPTIONS_Release_Renesas M16C Librarian]
+"Single Shot" "0a7d5b977ce98c10" 5 
+[OPTIONS_Release_Renesas M16C Assembler]
+"J:\WorkSpace\306c\306c\sfr26a_labels.a30" "07f8b7db41145c10" 2 
+"J:\WorkSpace\306c\306c\ncrt0_26askp.a30" "07f8b7db41145c10" 2 
+"Assembly source file" "07f8b7db41145c10" 2 
+[OPTIONS_Release_Renesas M16C Stype Converter]
+"Single Shot" "092c30ba7ce98c10" 4 
+[OPTIONS_Release_Renesas M16C Linker]
+"Single Shot" "092c30ba7ce98c10" 3 
+[OPTIONS_Release_Renesas M16C Jump table Composer]
+"Single Shot" "0a7d5b977ce98c10" 7 
+[OPTIONS_Release_Renesas M16C Configurator]
+"Single Shot" "0a7d5b977ce98c10" 6 
+[OPTIONS_Release]
+"" 0 
+"[V|VERSION|1] [S|OUTPUT|OBJECTCODE] [B|DEBUG|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).r30^"] [B|WNON_PROTOTYPE|1] [B|WUNKNOWN_PRAGMA|1] [B|WNESTING_COMMENT|1] [B|WLARGE_TO_SMALL|1] [B|SILENT|1]
+" 1 
+"[V|VERSION|1] [S|DEFINE|__USTACKSIZE__=0|__ISTACKSIZE__=100H] [B|HEAP|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).r30^"] [S|LIST|L|M] [B|DISABLES_MESSAGE|1]
+" 2 
+"[V|VERSION|1] [S|INPUTLIBRARY|^"L=nc30lib^"] [B|DEBUG|1] [B|MAP-S|1] [S|OUTPUT|^"$(CONFIGDIR)\\$(PROJECTNAME).x30^"] [B|STARTUPLINK|1] [B|NOMESSAGE|1]
+" 3 
+"[V|VERSION|1] [S|FORMAT|STYPE] [B|DATALENGTH|1] [S|OUTPUT|^"$(CONFIGDIR)\\$(PROJECTNAME).mot^"] [B|SILENT|1]
+" 4 
+"[V|VERSION|1] [S|MODE|CREATE|] [S|OUTPUT|^"$(CONFIGDIR)\\$(PROJECTNAME).lib^"] [B|SILENT|1]
+" 5 
+"[V|VERSION|1] [B|COMMAND|1] 
+" 6 
+"[V|VERSION|1] " 7 
+[EXCLUDED_FILES_Release]
+"J:\WorkSpace\306c\306c\skp_lcd.c" 
+"J:\WorkSpace\306c\306c\main_qsk26a_template.c" 
+[LINKAGE_ORDER_Release]
+"J:\WorkSpace\306c\306c\release\ncrt0_26askp.r30" 
+"J:\WorkSpace\306c\306c\release\main_26askp_template.r30" 
+"J:\WorkSpace\306c\306c\release\sfr26a_labels.r30" 
+"J:\WorkSpace\306c\306c\release\skp_lcd.r30" 
+[SESSION_DATA_CONFIGURATION_SESSION_Release_DefaultSession]
+"MEMORY_MAPPING_OPTIONS" "" 
+[SESSION_DATA_CONFIGURATION_SESSION_Release_M16C_R8C_FoUSB]
+"MEMORY_MAPPING_OPTIONS" "" 
+[EXT_DEBUGGER_INFO]
+0 "" "" "" "" 
+[BUILD_FILE_ORDER_Assembly list file]
+[BUILD_FILE_ORDER_C header file]
+[BUILD_FILE_ORDER_S-Record file]
+[BUILD_FILE_ORDER_Hex file]
+[GENERAL_DATA_CONFIGURATION_Release]
+[BUILD_FILE_ORDER_Configuration file]
+[BUILD_FILE_ORDER_Library file]
+[BUILD_FILE_ORDER_Absolute file]
+[BUILD_FILE_ORDER_Relocatable file]
+[GENERAL_DATA_CONFIGURATION_SESSION_Release_DefaultSession]
+[BUILD_FILE_ORDER_Preprocessed C source file]
+[BUILD_FILE_ORDER_Assembly include file]
+[BUILD_FILE_ORDER_Linkage map file]
+[BUILD_FILE_ORDER_C list file]
+[GENERAL_DATA_CONFIGURATION_SESSION_Release_M16C_R8C_FoUSB]
+[END]

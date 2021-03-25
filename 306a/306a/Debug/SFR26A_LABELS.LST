@@ -1,0 +1,717 @@
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Thu Jan 24 06:56:57 2008  PAGE 001
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4
+
+     1                                  ; ***********************************************************************
+     2                                  ; * DISCLAIMER:                                                         *
+     3                                  ; * The software supplied by Renesas Technology America Inc. is         *
+     4                                  ; * intended and supplied for use on Renesas Technology products.       *
+     5                                  ; * This software is owned by Renesas Technology America, Inc. or       *
+     6                                  ; * Renesas Technology Corporation and is protected under applicable    *
+     7                                  ; * copyright laws. All rights are reserved.                            *
+     8                                  ; *                                                                     * 
+     9                                  ; * THIS SOFTWARE IS PROVIDED "AS IS". NO WARRANTIES, WHETHER EXPRESS,  *
+    10                                  ; * IMPLIED OR STATUTORY, INCLUDING BUT NOT LIMITED TO IMPLIED 		    *
+    11                                  ; * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE  *
+    12                                  ; * APPLY TO THIS SOFTWARE. RENESAS TECHNOLOGY AMERICA, INC. AND        *
+    13                                  ; * AND RENESAS TECHNOLOGY CORPORATION RESERVE THE RIGHT, WITHOUT       *
+    14                                  ; * NOTICE, TO MAKE CHANGES TO THIS SOFTWARE. NEITHER RENESAS           *
+    15                                  ; * TECHNOLOGY AMERICA, INC. NOR RENESAS TECHNOLOGY CORPORATION SHALL,  * 
+    16                                  ; * IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL, OR         *
+    17                                  ; * CONSEQUENTIAL DAMAGES FOR ANY REASON WHATSOEVER ARISING OUT OF THE  *
+    18                                  ; * USE OR APPLICATION OF THIS SOFTWARE.                                *
+    19                                  ; ***********************************************************************
+    20                                  ;
+    21                                  ;-----------------------------------------------------------------------------
+    22                                  ;  FILE NAME: sfr26a_labels.a30
+    23                                  ;-----------
+    24                                  ;DESCRIPTION: SFR definitions to make M16C/26A SFR names visible in
+    25                                  ;             Debugger memory windows.
+    26                                  ;-----------
+    27                                  ;    DETAILS:
+    28                                  ;
+    29                                  ;       Instructions: Simply add this file to your project and the sfr label
+    30                                  ;                     names will be visible in any memory window within the
+    31                                  ;                     debugger.
+    32                                  ;
+    33                                  ;       NOTE: Adding this file to your project will cause the compiler to 
+    34                                  ;             report an incorrect number for how much RAM "DATA" was used.
+    35                                  ;             Please subtract 1024 bytes (the size of the SFR area) from
+    36                                  ;             the reported "DATA".
+    37                                  ;
+    38                                  ;	          For exmaple, when the compiler reports...
+    39                                  ;               DATA     0002883(00B43H) Byte(s)
+    40                                  ;               ROMDATA  0000377(00179H) Byte(s)
+    41                                  ;               CODE     0004703(0125FH) Byte(s)
+    42                                  ;             The actual amount of DATA used is 1859 byte (2883 - 1024)
+    43                                  ;
+    44                                  ;------------------
+    45                                  ; Revision History
+    46                                  ;------------------
+    47                                  ;   1.0 July 14, 2004
+    48                                  ;       Initial Version
+    49                                  ;
+    50                                  ;-----------------------------------------------------------------------------
+    51                                  
+    52                                  
+    53                                  .SECTION SFR_NO,DATA
+    54  00000                           .org 0h
+    55  00000                           SFR_NO_top:
+    56                                  
+    57                                  
+    58                                  .glb pm0 
+    59  00004                           .org 0004H 
+    60  00004(000001H)                  pm0: .blkb 1 ; Processor mode register 0
+    61                                  
+    62                                  .glb pm1 
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Thu Jan 24 06:56:57 2008  PAGE 002
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4
+
+    63  00005                           .org 0005H 
+    64  00005(000001H)                  pm1: .blkb 1 ; Processor mode register 1
+    65                                  
+    66                                  .glb cm0 
+    67  00006                           .org 0006H 
+    68  00006(000001H)                  cm0: .blkb 1 ; System clock control register 0
+    69                                  
+    70                                  .glb cm1 
+    71  00007                           .org 0007H 
+    72  00007(000001H)                  cm1: .blkb 1 ; System clock control register 1
+    73                                  
+    74                                  .glb aier 
+    75  00009                           .org 0009H 
+    76  00009(000001H)                  aier: .blkb 1 ; Address match interrupt enable register
+    77                                  
+    78                                  .glb prcr 
+    79  0000A                           .org 000aH 
+    80  0000A(000001H)                  prcr: .blkb 1 ; Protect register
+    81                                  
+    82                                  .glb cm2 
+    83  0000C                           .org 000cH 
+    84  0000C(000001H)                  cm2: .blkb 1 ; Oscillation stop detection register
+    85                                  
+    86                                  .glb wdts 
+    87  0000E                           .org 000eH 
+    88  0000E(000001H)                  wdts: .blkb 1 ; Watchdog timer start register
+    89                                  
+    90                                  .glb wdc 
+    91  0000F                           .org 000fH 
+    92  0000F(000001H)                  wdc: .blkb 1 ; Watchdog timer control register
+    93                                  
+    94                                  .glb rmad0 
+    95  00010                           .org 0010H 
+    96  00010(000001H)                  rmad0: .blkb 1 ; Address match interrupt register 0
+    97                                  
+    98                                  .glb rmad1 
+    99  00014                           .org 0014H 
+   100  00014(000001H)                  rmad1: .blkb 1 ; Address match interrupt register 1
+   101                                  
+   102                                  .glb vcr1 
+   103  00019                           .org 0019H 
+   104  00019(000001H)                  vcr1: .blkb 1 ; Voltage detection register 1
+   105                                  
+   106                                  .glb vcr2 
+   107  0001A                           .org 001aH 
+   108  0001A(000001H)                  vcr2: .blkb 1 ; Voltage detection register 2
+   109                                  
+   110                                  .glb plc0 
+   111  0001C                           .org 001cH 
+   112  0001C(000001H)                  plc0: .blkb 1 ; PLL control register 0
+   113                                  
+   114                                  .glb pm2 
+   115  0001E                           .org 001eH 
+   116  0001E(000001H)                  pm2: .blkb 1 ; Processor mode register 2
+   117                                  
+   118                                  .glb d4int 
+   119  0001F                           .org 001fH 
+   120  0001F(000001H)                  d4int: .blkb 1 ; Voltage down detection interrupt register
+   121                                  
+   122                                  .glb sar0 
+   123  00020                           .org 0020H 
+   124  00020(000001H)                  sar0: .blkb 1 ; DMA0 source pointer
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Thu Jan 24 06:56:57 2008  PAGE 003
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4
+
+   125                                  
+   126                                  .glb dar0 
+   127  00024                           .org 0024H 
+   128  00024(000001H)                  dar0: .blkb 1 ; DMA0 destination pointer
+   129                                  
+   130                                  .glb tcr0 
+   131  00028                           .org 0028H 
+   132  00028(000001H)                  tcr0: .blkb 1 ; DMA0 transfer counter
+   133                                  
+   134                                  .glb dm0con 
+   135  0002C                           .org 002cH 
+   136  0002C(000001H)                  dm0con: .blkb 1 ; DMA0 control register
+   137                                  
+   138                                  .glb sar1 
+   139  00030                           .org 0030H 
+   140  00030(000001H)                  sar1: .blkb 1 ; DMA1 source pointer
+   141                                  
+   142                                  .glb dar1 
+   143  00034                           .org 0034H 
+   144  00034(000001H)                  dar1: .blkb 1 ; DMA1 destination pointer
+   145                                  
+   146                                  .glb tcr1 
+   147  00038                           .org 0038H 
+   148  00038(000001H)                  tcr1: .blkb 1 ; DMA1 transfer counter
+   149                                  
+   150                                  .glb dm1con 
+   151  0003C                           .org 003cH 
+   152  0003C(000001H)                  dm1con: .blkb 1 ; DMA1 control register
+   153                                  
+   154                                  .glb int3ic 
+   155  00044                           .org 0044H 
+   156  00044(000001H)                  int3ic: .blkb 1 ; INT3~ interrupt control register
+   157                                  
+   158                                  .glb int5ic 
+   159  00048                           .org 0048H 
+   160  00048(000001H)                  int5ic: .blkb 1 ; INT5~ interrupt control register
+   161                                  
+   162                                  .glb int4ic 
+   163  00049                           .org 0049H 
+   164  00049(000001H)                  int4ic: .blkb 1 ; INT4~ interrupt control register
+   165                                  
+   166                                  .glb bcnic 
+   167  0004A                           .org 004aH 
+   168  0004A(000001H)                  bcnic: .blkb 1 ; UART2 Bus collision detection interrupt control register
+   169                                  
+   170                                  .glb dm0ic 
+   171  0004B                           .org 004bH 
+   172  0004B(000001H)                  dm0ic: .blkb 1 ; DMA0 interrupt control register
+   173                                  
+   174                                  .glb dm1ic 
+   175  0004C                           .org 004cH 
+   176  0004C(000001H)                  dm1ic: .blkb 1 ; DMA1 interrupt control register
+   177                                  
+   178                                  .glb kupic 
+   179  0004D                           .org 004dH 
+   180  0004D(000001H)                  kupic: .blkb 1 ; Key input interrupt control register
+   181                                  
+   182                                  .glb adic 
+   183  0004E                           .org 004eH 
+   184  0004E(000001H)                  adic: .blkb 1 ; A-D conversion interrupt control register
+   185                                  
+   186                                  .glb s2tic 
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Thu Jan 24 06:56:57 2008  PAGE 004
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4
+
+   187  0004F                           .org 004fH 
+   188  0004F(000001H)                  s2tic: .blkb 1 ; UART2 transmit interrupt control register
+   189                                  
+   190                                  .glb s2ric 
+   191  00050                           .org 0050H 
+   192  00050(000001H)                  s2ric: .blkb 1 ; UART2 receive interrupt control register
+   193                                  
+   194                                  .glb s0tic 
+   195  00051                           .org 0051H 
+   196  00051(000001H)                  s0tic: .blkb 1 ; UART0 transmit interrupt control register
+   197                                  
+   198                                  .glb s0ric 
+   199  00052                           .org 0052H 
+   200  00052(000001H)                  s0ric: .blkb 1 ; UART0 receive interrupt control register
+   201                                  
+   202                                  .glb s1tic 
+   203  00053                           .org 0053H 
+   204  00053(000001H)                  s1tic: .blkb 1 ; UART1 transmit interrupt control register
+   205                                  
+   206                                  .glb s1ric 
+   207  00054                           .org 0054H 
+   208  00054(000001H)                  s1ric: .blkb 1 ; UART1 receive interrupt control register
+   209                                  
+   210                                  .glb ta0ic 
+   211  00055                           .org 0055H 
+   212  00055(000001H)                  ta0ic: .blkb 1 ; Timer A0 interrupt control register
+   213                                  
+   214                                  .glb ta1ic 
+   215  00056                           .org 0056H 
+   216  00056(000001H)                  ta1ic: .blkb 1 ; Timer A1 interrupt control register
+   217                                  
+   218                                  .glb ta2ic 
+   219  00057                           .org 0057H 
+   220  00057(000001H)                  ta2ic: .blkb 1 ; Timer A2 interrupt control register
+   221                                  
+   222                                  .glb ta3ic 
+   223  00058                           .org 0058H 
+   224  00058(000001H)                  ta3ic: .blkb 1 ; Timer A3 interrupt control register
+   225                                  
+   226                                  .glb ta4ic 
+   227  00059                           .org 0059H 
+   228  00059(000001H)                  ta4ic: .blkb 1 ; Timer A4 interrupt control register
+   229                                  
+   230                                  .glb tb0ic 
+   231  0005A                           .org 005aH 
+   232  0005A(000001H)                  tb0ic: .blkb 1 ; Timer B0 interrupt control register
+   233                                  
+   234                                  .glb tb1ic 
+   235  0005B                           .org 005bH 
+   236  0005B(000001H)                  tb1ic: .blkb 1 ; Timer B1 interrupt control register
+   237                                  
+   238                                  .glb tb2ic 
+   239  0005C                           .org 005cH 
+   240  0005C(000001H)                  tb2ic: .blkb 1 ; Timer B2 interrupt control register
+   241                                  
+   242                                  .glb int0ic 
+   243  0005D                           .org 005dH 
+   244  0005D(000001H)                  int0ic: .blkb 1 ; INT0~ interrupt control register
+   245                                  
+   246                                  .glb int1ic 
+   247  0005E                           .org 005eH 
+   248  0005E(000001H)                  int1ic: .blkb 1 ; INT1~ interrupt control register
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Thu Jan 24 06:56:57 2008  PAGE 005
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4
+
+   249                                  
+   250                                  .glb int2ic 
+   251  0005F                           .org 005fH 
+   252  0005F(000001H)                  int2ic: .blkb 1 ; INT2~ interrupt control register
+   253                                  
+   254                                  .glb fmr4 
+   255  001B3                           .org 01b3H 
+   256  001B3(000001H)                  fmr4: .blkb 1 ; Flash memory control register 4
+   257                                  
+   258                                  .glb fmr1 
+   259  001B5                           .org 01b5H 
+   260  001B5(000001H)                  fmr1: .blkb 1 ; Flash memory control register 1
+   261                                  
+   262                                  .glb fmr0 
+   263  001B7                           .org 01b7H 
+   264  001B7(000001H)                  fmr0: .blkb 1 ; Flash memory control register 0
+   265                                  
+   266                                  .glb tprc 
+   267  0025A                           .org 025aH 
+   268  0025A(000001H)                  tprc: .blkb 1 ; Three-phase protect control register
+   269                                  
+   270                                  .glb rocr 
+   271  0025C                           .org 025cH 
+   272  0025C(000001H)                  rocr: .blkb 1 ; Ring oscillator control register
+   273                                  
+   274                                  .glb pacr 
+   275  0025D                           .org 025dH 
+   276  0025D(000001H)                  pacr: .blkb 1 ; Pin assignment control register
+   277                                  
+   278                                  .glb pclkr 
+   279  0025E                           .org 025eH 
+   280  0025E(000001H)                  pclkr: .blkb 1 ; Peripheral clock select register
+   281                                  
+   282                                  .glb nddr 
+   283  0033E                           .org 033eH 
+   284  0033E(000001H)                  nddr: .blkb 1 ; NMI digital debounce register
+   285                                  
+   286                                  .glb p17ddr 
+   287  0033F                           .org 033fH 
+   288  0033F(000001H)                  p17ddr: .blkb 1 ; P17 digital debounce register
+   289                                  
+   290                                  .glb ta11 
+   291  00342                           .org 0342H 
+   292  00342(000001H)                  ta11: .blkb 1 ; Timer A1-1 register
+   293                                  
+   294                                  .glb ta21 
+   295  00344                           .org 0344H 
+   296  00344(000001H)                  ta21: .blkb 1 ; Timer A2-1 register
+   297                                  
+   298                                  .glb ta41 
+   299  00346                           .org 0346H 
+   300  00346(000001H)                  ta41: .blkb 1 ; Timer A4-1 register
+   301                                  
+   302                                  .glb invc0 
+   303  00348                           .org 0348H 
+   304  00348(000001H)                  invc0: .blkb 1 ; Three-phase PWM control register 0
+   305                                  
+   306                                  .glb invc1 
+   307  00349                           .org 0349H 
+   308  00349(000001H)                  invc1: .blkb 1 ; Three-phase PWM control register 1
+   309                                  
+   310                                  .glb idb0 
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Thu Jan 24 06:56:57 2008  PAGE 006
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4
+
+   311  0034A                           .org 034aH 
+   312  0034A(000001H)                  idb0: .blkb 1 ; Three-phase output buffer register 0
+   313                                  
+   314                                  .glb idb1 
+   315  0034B                           .org 034bH 
+   316  0034B(000001H)                  idb1: .blkb 1 ; Three-phase output buffer register 1
+   317                                  
+   318                                  .glb dtt 
+   319  0034C                           .org 034cH 
+   320  0034C(000001H)                  dtt: .blkb 1 ; Dead time timer
+   321                                  
+   322                                  .glb ictb2 
+   323  0034D                           .org 034dH 
+   324  0034D(000001H)                  ictb2: .blkb 1 ; Timer B2 interrupt occurrences frequency set counter
+   325                                  
+   326                                  .glb pdrf 
+   327  0034E                           .org 034eH 
+   328  0034E(000001H)                  pdrf: .blkb 1 ; Position-data-retain function register
+   329                                  
+   330                                  .glb pfcr 
+   331  00358                           .org 0358H 
+   332  00358(000001H)                  pfcr: .blkb 1 ; Port function control register
+   333                                  
+   334                                  .glb ifsr2a 
+   335  0035E                           .org 035eH 
+   336  0035E(000001H)                  ifsr2a: .blkb 1 ; Interrupt cause select register 2
+   337                                  
+   338                                  .glb ifsr 
+   339  0035F                           .org 035fH 
+   340  0035F(000001H)                  ifsr: .blkb 1 ; Interrupt cause select register
+   341                                  
+   342                                  .glb u2smr4 
+   343  00374                           .org 0374H 
+   344  00374(000001H)                  u2smr4: .blkb 1 ; UART2 special mode register 4
+   345                                  
+   346                                  .glb u2smr3 
+   347  00375                           .org 0375H 
+   348  00375(000001H)                  u2smr3: .blkb 1 ; UART2 special mode register 3
+   349                                  
+   350                                  .glb u2smr2 
+   351  00376                           .org 0376H 
+   352  00376(000001H)                  u2smr2: .blkb 1 ; UART2 special mode register 2
+   353                                  
+   354                                  .glb u2smr 
+   355  00377                           .org 0377H 
+   356  00377(000001H)                  u2smr: .blkb 1 ; UART2 special mode register
+   357                                  
+   358                                  .glb u2mr 
+   359  00378                           .org 0378H 
+   360  00378(000001H)                  u2mr: .blkb 1 ; UART2 transmit/receive mode register
+   361                                  
+   362                                  .glb u2brg 
+   363  00379                           .org 0379H 
+   364  00379(000001H)                  u2brg: .blkb 1 ; UART2 bit rate generator
+   365                                  
+   366                                  .glb u2tb 
+   367  0037A                           .org 037aH 
+   368  0037A(000001H)                  u2tb: .blkb 1 ; UART2 transmit buffer register
+   369                                  
+   370                                  .glb u2c0 
+   371  0037C                           .org 037cH 
+   372  0037C(000001H)                  u2c0: .blkb 1 ; UART2 transmit/receive control register 0
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Thu Jan 24 06:56:57 2008  PAGE 007
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4
+
+   373                                  
+   374                                  .glb u2c1 
+   375  0037D                           .org 037dH 
+   376  0037D(000001H)                  u2c1: .blkb 1 ; UART2 transmit/receive control register 1
+   377                                  
+   378                                  .glb u2rb 
+   379  0037E                           .org 037eH 
+   380  0037E(000001H)                  u2rb: .blkb 1 ; UART2 receive buffer register
+   381                                  
+   382                                  .glb tabsr 
+   383  00380                           .org 0380H 
+   384  00380(000001H)                  tabsr: .blkb 1 ; Count start flag
+   385                                  
+   386                                  .glb cpsrf 
+   387  00381                           .org 0381H 
+   388  00381(000001H)                  cpsrf: .blkb 1 ; Clock prescaler reset flag
+   389                                  
+   390                                  .glb onsf 
+   391  00382                           .org 0382H 
+   392  00382(000001H)                  onsf: .blkb 1 ; One-shot start flag
+   393                                  
+   394                                  .glb trgsr 
+   395  00383                           .org 0383H 
+   396  00383(000001H)                  trgsr: .blkb 1 ; Trigger select register
+   397                                  
+   398                                  .glb udf 
+   399  00384                           .org 0384H 
+   400  00384(000001H)                  udf: .blkb 1 ; Up/down flag
+   401                                  
+   402                                  .glb ta0 
+   403  00386                           .org 0386H 
+   404  00386(000001H)                  ta0: .blkb 1 ; Timer A0 register
+   405                                  
+   406                                  .glb ta1 
+   407  00388                           .org 0388H 
+   408  00388(000001H)                  ta1: .blkb 1 ; Timer A1 register
+   409                                  
+   410                                  .glb ta2 
+   411  0038A                           .org 038aH 
+   412  0038A(000001H)                  ta2: .blkb 1 ; Timer A2 register
+   413                                  
+   414                                  .glb ta3 
+   415  0038C                           .org 038cH 
+   416  0038C(000001H)                  ta3: .blkb 1 ; Timer A3 register
+   417                                  
+   418                                  .glb ta4 
+   419  0038E                           .org 038eH 
+   420  0038E(000001H)                  ta4: .blkb 1 ; Timer A4 register
+   421                                  
+   422                                  .glb tb0 
+   423  00390                           .org 0390H 
+   424  00390(000001H)                  tb0: .blkb 1 ; Timer B0 register
+   425                                  
+   426                                  .glb tb1 
+   427  00392                           .org 0392H 
+   428  00392(000001H)                  tb1: .blkb 1 ; Timer B1 register
+   429                                  
+   430                                  .glb tb2 
+   431  00394                           .org 0394H 
+   432  00394(000001H)                  tb2: .blkb 1 ; Timer B2 register
+   433                                  
+   434                                  .glb ta0mr 
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Thu Jan 24 06:56:57 2008  PAGE 008
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4
+
+   435  00396                           .org 0396H 
+   436  00396(000001H)                  ta0mr: .blkb 1 ; Timer A0 mode register
+   437                                  
+   438                                  .glb ta1mr 
+   439  00397                           .org 0397H 
+   440  00397(000001H)                  ta1mr: .blkb 1 ; Timer A1 mode register
+   441                                  
+   442                                  .glb ta2mr 
+   443  00398                           .org 0398H 
+   444  00398(000001H)                  ta2mr: .blkb 1 ; Timer A2 mode register
+   445                                  
+   446                                  .glb ta3mr 
+   447  00399                           .org 0399H 
+   448  00399(000001H)                  ta3mr: .blkb 1 ; Timer A3 mode register
+   449                                  
+   450                                  .glb ta4mr 
+   451  0039A                           .org 039aH 
+   452  0039A(000001H)                  ta4mr: .blkb 1 ; Timer A4 mode register
+   453                                  
+   454                                  .glb tb0mr 
+   455  0039B                           .org 039bH 
+   456  0039B(000001H)                  tb0mr: .blkb 1 ; Timer B0 mode register
+   457                                  
+   458                                  .glb tb1mr 
+   459  0039C                           .org 039cH 
+   460  0039C(000001H)                  tb1mr: .blkb 1 ; Timer B1 mode register
+   461                                  
+   462                                  .glb tb2mr 
+   463  0039D                           .org 039dH 
+   464  0039D(000001H)                  tb2mr: .blkb 1 ; Timer B2 mode register
+   465                                  
+   466                                  .glb tb2sc 
+   467  0039E                           .org 039eH 
+   468  0039E(000001H)                  tb2sc: .blkb 1 ; Timer B2 special mode register
+   469                                  
+   470                                  .glb u0mr 
+   471  003A0                           .org 03a0H 
+   472  003A0(000001H)                  u0mr: .blkb 1 ; UART0 transmit/receive mode register
+   473                                  
+   474                                  .glb u0brg 
+   475  003A1                           .org 03a1H 
+   476  003A1(000001H)                  u0brg: .blkb 1 ; UART0 bit rate generator
+   477                                  
+   478                                  .glb u0tb 
+   479  003A2                           .org 03a2H 
+   480  003A2(000001H)                  u0tb: .blkb 1 ; UART0 transmit buffer register
+   481                                  
+   482                                  .glb u0c0 
+   483  003A4                           .org 03a4H 
+   484  003A4(000001H)                  u0c0: .blkb 1 ; UART0 transmit/receive control register 0
+   485                                  
+   486                                  .glb u0c1 
+   487  003A5                           .org 03a5H 
+   488  003A5(000001H)                  u0c1: .blkb 1 ; UART0 transmit/receive control register 1
+   489                                  
+   490                                  .glb u0rb 
+   491  003A6                           .org 03a6H 
+   492  003A6(000001H)                  u0rb: .blkb 1 ; UART0 receive buffer register
+   493                                  
+   494                                  .glb u1mr 
+   495  003A8                           .org 03a8H 
+   496  003A8(000001H)                  u1mr: .blkb 1 ; UART1 transmit/receive mode register
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Thu Jan 24 06:56:57 2008  PAGE 009
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4
+
+   497                                  
+   498                                  .glb u1brg 
+   499  003A9                           .org 03a9H 
+   500  003A9(000001H)                  u1brg: .blkb 1 ; UART1 bit rate generator
+   501                                  
+   502                                  .glb u1tb 
+   503  003AA                           .org 03aaH 
+   504  003AA(000001H)                  u1tb: .blkb 1 ; UART1 transmit buffer register
+   505                                  
+   506                                  .glb u1c0 
+   507  003AC                           .org 03acH 
+   508  003AC(000001H)                  u1c0: .blkb 1 ; UART1 transmit/receive control register 0
+   509                                  
+   510                                  .glb u1c1 
+   511  003AD                           .org 03adH 
+   512  003AD(000001H)                  u1c1: .blkb 1 ; UART1 transmit/receive control register 1
+   513                                  
+   514                                  .glb u1rb 
+   515  003AE                           .org 03aeH 
+   516  003AE(000001H)                  u1rb: .blkb 1 ; UART1 receive buffer register
+   517                                  
+   518                                  .glb ucon 
+   519  003B0                           .org 03b0H 
+   520  003B0(000001H)                  ucon: .blkb 1 ; UART transmit/receive control register 2
+   521                                  
+   522                                  .glb crcsar 
+   523  003B4                           .org 03b4H 
+   524  003B4(000001H)                  crcsar: .blkb 1 ; sfr address register
+   525                                  
+   526                                  .glb crcmr 
+   527  003B6                           .org 03b6H 
+   528  003B6(000001H)                  crcmr: .blkb 1 ; crc mode register
+   529                                  
+   530                                  .glb dm0sl 
+   531  003B8                           .org 03b8H 
+   532  003B8(000001H)                  dm0sl: .blkb 1 ; DMA0 request cause select register
+   533                                  
+   534                                  .glb dm1sl 
+   535  003BA                           .org 03baH 
+   536  003BA(000001H)                  dm1sl: .blkb 1 ; DMA1 request cause select register
+   537                                  
+   538                                  .glb crcd 
+   539  003BC                           .org 03bcH 
+   540  003BC(000001H)                  crcd: .blkb 1 ; CRC data register
+   541                                  
+   542                                  .glb crcin 
+   543  003BE                           .org 03beH 
+   544  003BE(000001H)                  crcin: .blkb 1 ; CRC input register
+   545                                  
+   546                                  .glb ad0 
+   547  003C0                           .org 03c0H 
+   548  003C0(000001H)                  ad0: .blkb 1 ; A-D register 0
+   549                                  
+   550                                  .glb ad1 
+   551  003C2                           .org 03c2H 
+   552  003C2(000001H)                  ad1: .blkb 1 ; A-D register 1
+   553                                  
+   554                                  .glb ad2 
+   555  003C4                           .org 03c4H 
+   556  003C4(000001H)                  ad2: .blkb 1 ; A-D register 2
+   557                                  
+   558                                  .glb ad3 
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Thu Jan 24 06:56:57 2008  PAGE 010
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4
+
+   559  003C6                           .org 03c6H 
+   560  003C6(000001H)                  ad3: .blkb 1 ; A-D register 3
+   561                                  
+   562                                  .glb ad4 
+   563  003C8                           .org 03c8H 
+   564  003C8(000001H)                  ad4: .blkb 1 ; A-D register 4
+   565                                  
+   566                                  .glb ad5 
+   567  003CA                           .org 03caH 
+   568  003CA(000001H)                  ad5: .blkb 1 ; A-D register 5
+   569                                  
+   570                                  .glb ad6 
+   571  003CC                           .org 03ccH 
+   572  003CC(000001H)                  ad6: .blkb 1 ; A-D register 6
+   573                                  
+   574                                  .glb ad7 
+   575  003CE                           .org 03ceH 
+   576  003CE(000001H)                  ad7: .blkb 1 ; A-D register 7
+   577                                  
+   578                                  .glb adtrgcon 
+   579  003D2                           .org 03d2H 
+   580  003D2(000001H)                  adtrgcon: .blkb 1 ; A-D trigger control register
+   581                                  
+   582                                  .glb adstat0 
+   583  003D3                           .org 03d3H 
+   584  003D3(000001H)                  adstat0: .blkb 1 ; A-D convert status register 0
+   585                                  
+   586                                  .glb adcon2 
+   587  003D4                           .org 03d4H 
+   588  003D4(000001H)                  adcon2: .blkb 1 ; A-D control register 2
+   589                                  
+   590                                  .glb adcon0 
+   591  003D6                           .org 03d6H 
+   592  003D6(000001H)                  adcon0: .blkb 1 ; A-D control register 0
+   593                                  
+   594                                  .glb adcon1 
+   595  003D7                           .org 03d7H 
+   596  003D7(000001H)                  adcon1: .blkb 1 ; A-D control register 1
+   597                                  
+   598                                  .glb p1 
+   599  003E1                           .org 03e1H 
+   600  003E1(000001H)                  p1: .blkb 1 ; Port P1 register
+   601                                  
+   602                                  .glb pd1 
+   603  003E3                           .org 03e3H 
+   604  003E3(000001H)                  pd1: .blkb 1 ; Port P1 direction register
+   605                                  
+   606                                  .glb p6 
+   607  003EC                           .org 03ecH 
+   608  003EC(000001H)                  p6: .blkb 1 ; Port P6 register
+   609                                  
+   610                                  .glb p7 
+   611  003ED                           .org 03edH 
+   612  003ED(000001H)                  p7: .blkb 1 ; Port P7 register
+   613                                  
+   614                                  .glb pd6 
+   615  003EE                           .org 03eeH 
+   616  003EE(000001H)                  pd6: .blkb 1 ; Port P6 direction register
+   617                                  
+   618                                  .glb pd7 
+   619  003EF                           .org 03efH 
+   620  003EF(000001H)                  pd7: .blkb 1 ; Port P7 direction register
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Thu Jan 24 06:56:57 2008  PAGE 011
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4
+
+   621                                  
+   622                                  .glb p8 
+   623  003F0                           .org 03f0H 
+   624  003F0(000001H)                  p8: .blkb 1 ; Port P8 register
+   625                                  
+   626                                  .glb p9 
+   627  003F1                           .org 03f1H 
+   628  003F1(000001H)                  p9: .blkb 1 ; Port P9 register
+   629                                  
+   630                                  .glb pd8 
+   631  003F2                           .org 03f2H 
+   632  003F2(000001H)                  pd8: .blkb 1 ; Port P8 direction register
+   633                                  
+   634                                  .glb pd9 
+   635  003F3                           .org 03f3H 
+   636  003F3(000001H)                  pd9: .blkb 1 ; Port P9 direction register
+   637                                  
+   638                                  .glb p10 
+   639  003F4                           .org 03f4H 
+   640  003F4(000001H)                  p10: .blkb 1 ; Port P10 register
+   641                                  
+   642                                  .glb pd10 
+   643  003F6                           .org 03f6H 
+   644  003F6(000001H)                  pd10: .blkb 1 ; Port P10 direction register
+   645                                  
+   646                                  .glb pur0 
+   647  003FC                           .org 03fcH 
+   648  003FC(000001H)                  pur0: .blkb 1 ; Pull-up control register 0
+   649                                  
+   650                                  .glb pur1 
+   651  003FD                           .org 03fdH 
+   652  003FD(000001H)                  pur1: .blkb 1 ; Pull-up control register 1
+   653                                  
+   654                                  .glb pur2 
+   655  003FE                           .org 03feH 
+   656  003FE(000001H)                  pur2: .blkb 1 ; Pull-up control register 2
+   657                                  
+   658                                  .glb pcr 
+   659  003FF                           .org 03ffH 
+   660  003FF(000001H)                  pcr: .blkb 1 ; Port control register
+   661                                  
+   662                                  .end
+
+Information List
+
+TOTAL ERROR(S)    00000
+TOTAL WARNING(S)  00000
+TOTAL LINE(S)     00662   LINES
+
+Section List
+
+Attr        Size          Name
+DATA     0001024(00400H)  SFR_NO

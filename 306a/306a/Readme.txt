@@ -1,0 +1,17 @@
+-------- PROJECT GENERATOR --------
+PROJECT NAME :	306a
+PROJECT DIRECTORY :	J:\WorkSpace\306a\306a
+CPU SERIES :	M16C/60
+CPU TYPE :	Other
+TOOLCHAIN NAME :	Renesas M16C Standard Toolchain
+TOOLCHAIN VERSION :	5.30.02
+GENERATION FILES :
+    J:\WorkSpace\306a\306a\306a.c
+        Main Program
+START UP FILES :
+    J:\WorkSpace\306a\306a\sect30.inc
+    J:\WorkSpace\306a\306a\ncrt0.a30
+
+SELECT TARGET :
+    M16C R8C FoUSB/UART
+DATE & TIME : 1/20/2008 4:17:51 PM

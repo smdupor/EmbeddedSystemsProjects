@@ -1,0 +1,9 @@
+-c
+-g
+-dir J:\WorkSpace\306c\306c\release\
+-WLTS
+-WNC
+-WNP
+-WUP
+-silent
+J:\WorkSpace\306c\306c\main.c

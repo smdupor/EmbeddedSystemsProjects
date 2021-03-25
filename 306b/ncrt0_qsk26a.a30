@@ -1,0 +1,137 @@
+;*************************************************************************** ;
+; C Start up file for M16C/Tiny SKP
+; Copyright 2004 Renesas Technology America, Inc.
+; All Rights Reserved.
+;
+; ncrt0_26askp.a30 : NC30 startup program
+;
+; Content: Customized startup program for M16C/26A (M30260) microcontroller
+;		   using the NC30 compiler.
+; This program is applicable when using the basic I/O library
+;       		
+;***************************************************************************
+
+; Revision History
+; 0.1  modified standard startup files for skp
+; 1.0  SKP release 
+
+;***************************************************************************
+
+;---------------------------------------------------------------------
+; Section allocation and definitions
+;---------------------------------------------------------------------
+	.list OFF
+	.include sect30_qsk26a.inc
+	.list ON
+
+;====================================================================
+; Interrupt section start
+;---------------------------------------------------------------------
+  .insf  start,S,0
+  .glb  start
+  .section  interrupt
+
+start:
+;---------------------------------------------------------------------
+; After reset, program execution starts here.
+; Upon reset, the processor clock (BLCK) defaults to divided by 8 (f/8). 
+;---------------------------------------------------------------------
+  ldc  #istack_top,  isp  ;set istack pointer
+
+;========================================================================
+; ********************* NOTE: CHANGING BCLK SPEED HERE ******************
+; SETTING clock main crystal.  BCLK  divided by 1 
+; AFTER RESET, BCLK DEFAULTS TO (f2rosc/2)/8 = 125kHz.
+;  Also note that the debug kernel modifies reset BCLK 
+;  condition to (f3rosc/2)/8 = 1MHz when running KD30.
+;========================================================================
+  bset  0,000Ah     ; Enable writes to clock control registers
+  bclr  1,000Ch     ; Switch from Ring osc to Xin (10 Mhz/8)
+  mov.b  #20,0007h  ; Set CM16 & CM17 to 0, divide-by-1 mode
+  mov.b  #08h,0006h ; Enable CM16 & CM17, clock is divide-by-1 mode 
+  bclr  0,000Ah     ; Disable writes to clock register                 
+
+;---------------------------------------------------------------------
+;  This section sets the MCU package: 42-pin or 48-pin. To change to
+;   42-pin package, change mov.b #04,025Dh to mov.b #01,025Dh.
+;--------------------------------------------------------------------
+  bset  2,000Ah     ; Enable writes to the Pin Assignment Control reg(PACR)
+  mov.b  #04h,025Dh ; Use this line of code for 48 pin package
+
+  fset U
+  ldc  #stack_top,  sp  ;set user stack pointer 
+  fclr U
+
+  ldc  #data_SE_top,  sb  ;set sb register 
+  ldintb  #VECTOR_ADR
+
+;====================================================================
+; Variable area initialization. This code uses macro's (see sect30_26askp.inc)  
+; for initializing C variables. Clears global variables, 
+; sets initialized variables, etc.
+;--------------------------------------------------------------------
+; bss zero clear
+;--------------------------------------------------------------------
+  N_BZERO  bss_SE_top,bss_SE
+  N_BZERO  bss_SO_top,bss_SO
+  N_BZERO  bss_NE_top,bss_NE
+  N_BZERO  bss_NO_top,bss_NO
+
+;---------------------------------------------------------------------
+; initialize data section
+;---------------------------------------------------------------------
+  N_BCOPY  data_SEI_top,data_SE_top,data_SE
+  N_BCOPY  data_SOI_top,data_SO_top,data_SO
+  N_BCOPY  data_NEI_top,data_NE_top,data_NE
+  N_BCOPY  data_NOI_top,data_NO_top,data_NO
+
+;====================================================================
+; heap area initialization 
+;---------------------------------------------------------------------
+.if __HEAP__ != 1
+
+  HEAPINIT
+
+.endif
+
+;====================================================================
+; Initialize standard I/O
+; This function is not called when using the SKP because the init.c function
+; initializes UART1 which is used by the in-circuit debugger.  To use this
+; function first modify the init.c so the UART1 is not initialized
+;---------------------------------------------------------------------
+;.if __STANDARD_IO__ != 1
+;  .glb  _init
+;  .call  _init,G
+;  jsr.a  _init
+;.endif
+
+;====================================================================
+; Call main() function
+;---------------------------------------------------------------------
+  ldc  #0h,fb  ; for debugger
+   
+  .glb  _main
+  jsr.a  _main
+
+
+;====================================================================
+; exit() function
+;---------------------------------------------------------------------
+  .glb  _exit
+  .glb  $exit
+_exit:         ; End program
+$exit:
+  jmp  _exit
+  .einsf
+;====================================================================
+; dummy interrupt function. Used for all unassigned interrupts (see vector
+; declaration of sect30_26askp.inc).
+;---------------------------------------------------------------------
+dummy_int:
+  reit
+
+  .end
+
+
+

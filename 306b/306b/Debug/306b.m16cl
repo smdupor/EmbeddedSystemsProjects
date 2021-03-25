@@ -1,0 +1,10 @@
+-L nc30lib
+-G
+-MS
+-O J:\WorkSpace\306b\306b\Debug\306b.x30
+J:\WorkSpace\306b\306b\Debug\ncrt0.r30
+J:\WorkSpace\306b\306b\Debug\itoa.r30
+J:\WorkSpace\306b\306b\Debug\main.r30
+J:\WorkSpace\306b\306b\Debug\mcu_init.r30
+J:\WorkSpace\306b\306b\Debug\QSK_LCD.r30
+J:\WorkSpace\306b\306b\Debug\sfr26a_labels.r30

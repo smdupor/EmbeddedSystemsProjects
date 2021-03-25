@@ -1,0 +1,164 @@
+##########################################
+# (1) LINK INFORMATION                   #
+##########################################
+J:\Renesas\NC30WA\V530R02\bin\ln30.exe @J:\WorkSpace\Tutorial\FoUSB_UART\M16C\Tutorial\tutorial\debug\Tutorial.m16cl
+
+# LINK FILE INFORMATION
+NCRT0 (J:\WorkSpace\Tutorial\FoUSB_UART\M16C\Tutorial\tutorial\debug\ncrt0.r30)
+	Jan 24 13:54:52 2008
+
+SORT (J:\WorkSpace\Tutorial\FoUSB_UART\M16C\Tutorial\tutorial\debug\sort.r30)
+	Jan 24 13:54:52 2008
+
+TUTORIAL (J:\WorkSpace\Tutorial\FoUSB_UART\M16C\Tutorial\tutorial\debug\tutorial.r30)
+	Jan 24 13:54:52 2008
+
+BCOPY (J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:17:52 2005
+
+BZERO (J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:17:52 2005
+
+MALLOC (J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:18:01 2005
+
+MEMCPY (J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:18:02 2005
+
+MEMSET (J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:18:02 2005
+
+RAND (J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:18:11 2005
+
+_I4DIV (J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:17:47 2005
+
+_I4MULU (J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib)
+	Jan 13 13:17:48 2005
+
+
+##########################################
+# (2) SECTION INFORMATION                #
+##########################################
+# SECTION                        ATR TYPE    START  LENGTH ALIGN MODULENAME
+data_SE                          ABS DATA    000500 000000       NCRT0
+bss_SE                           REL DATA    000500 000000 2     NCRT0
+data_SO                          REL DATA    000500 000000       NCRT0
+bss_SO                           REL DATA    000500 000000       NCRT0
+data_NE                          REL DATA    000500 000000 2     NCRT0
+                                 REL DATA    000500 000010       MALLOC
+                                 REL DATA    000510 000004       RAND
+bss_NE                           REL DATA    000514 000000 2     NCRT0
+                                 REL DATA    000514 00000C       MALLOC
+data_NO                          REL DATA    000520 000000       NCRT0
+bss_NO                           REL DATA    000520 000000       NCRT0
+stack                            REL DATA    000520 000600       NCRT0
+heap                             REL DATA    000B20 000300       NCRT0
+rom_NE                           REL ROMDATA 000E20 000000 2     NCRT0
+rom_NO                           REL ROMDATA 000E20 000000       NCRT0
+data_FE                          ABS DATA    0FB000 000000       NCRT0
+bss_FE                           REL DATA    0FB000 000000 2     NCRT0
+data_FO                          REL DATA    0FB000 000000       NCRT0
+bss_FO                           REL DATA    0FB000 000000       NCRT0
+rom_FE                           ABS ROMDATA 0F0000 000000       NCRT0
+rom_FO                           REL ROMDATA 0F0000 000000       NCRT0
+data_SEI                         REL ROMDATA 0F0000 000000       NCRT0
+data_SOI                         REL ROMDATA 0F0000 000000       NCRT0
+data_NEI                         REL ROMDATA 0F0000 000000       NCRT0
+                                 REL ROMDATA 0F0000 000010       MALLOC
+                                 REL ROMDATA 0F0010 000004       RAND
+data_NOI                         REL ROMDATA 0F0014 000000       NCRT0
+data_FEI                         REL ROMDATA 0F0014 000000       NCRT0
+data_FOI                         REL ROMDATA 0F0014 000000       NCRT0
+switch_table                     REL ROMDATA 0F0014 000000       NCRT0
+program                          REL CODE    0F0014 000000       NCRT0
+                                 REL CODE    0F0014 000206 2     SORT
+                                 REL CODE    0F021A 000159 2     TUTORIAL
+                                 REL CODE    0F0374 000035 2     BCOPY
+                                 REL CODE    0F03AA 000028 2     BZERO
+                                 REL CODE    0F03D2 000555 2     MALLOC
+                                 REL CODE    0F0928 000044 2     MEMCPY
+                                 REL CODE    0F096C 000034 2     MEMSET
+                                 REL CODE    0F09A0 000033 2     RAND
+                                 REL CODE    0F09D4 000083 2     _I4DIV
+                                 REL CODE    0F0A58 00001C 2     _I4MULU
+interrupt                        REL CODE    0F0A74 000000       NCRT0
+                                 REL CODE    0F0A74 000119       NCRT0
+program_S                        REL CODE    0F0B8D 000000       NCRT0
+vector                           ABS ROMDATA 0FBD00 000100       NCRT0
+svector                          ABS ROMDATA 0FC400 000000       NCRT0
+fvector                          ABS ROMDATA 0FFFFC 000004       NCRT0
+# Total -------------------------------------------------------------------
+                                     DATA           000920(0002336) Byte(s)
+                                     ROMDATA        000118(0000280) Byte(s)
+                                     CODE           000B79(0002937) Byte(s)
+
+##########################################
+# (3) GLOBAL LABEL INFORMATION           #
+##########################################
+$calloc            0f03d2  $change            0f01be  $exit              0f0b8a
+$getmem            0f050e  $malloc            0f0448  $memset            0f096c
+$realloc           0f049a  $rlsmem            0f0684  $sort              0f0102
+$srand             0f09ca  __i4div            0f09d4  __i4mulU           0f0a58
+__mbase            000514  __memt             000508  __mnext            000518
+__msize            00051c  __pool             000500  _abort             0f0372
+_bcopy             0f0374  _bzero             0f03aa  _exit              0f0b8a
+_free              0f0410  _init              0f0014  _main              0f021a
+_memcpy            0f0928  _rand              0f09a0  _tutorial          0f0224
+dummy_int          0f0b8c  start              0f0a74  
+
+##########################################
+# (4) GLOBAL EQU SYMBOL INFORMATION      #
+##########################################
+__SB__           00000500  
+
+##########################################
+# (5) GLOBAL EQU BIT-SYMBOL INFORMATION  #
+##########################################
+
+##########################################
+# (6) LOCAL LABEL INFORMATION            #
+##########################################
+@ NCRT0 ( J:\WorkSpace\Tutorial\FoUSB_UART\M16C\Tutorial\tutorial\debug\ncrt0.r30 )
+@ SORT ( J:\WorkSpace\Tutorial\FoUSB_UART\M16C\Tutorial\tutorial\debug\sort.r30 )
+@ TUTORIAL ( J:\WorkSpace\Tutorial\FoUSB_UART\M16C\Tutorial\tutorial\debug\tutorial.r30 )
+@ BCOPY ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ BZERO ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MALLOC ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MEMCPY ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MEMSET ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ RAND ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ _I4DIV ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ _I4MULU ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+
+##########################################
+# (7) LOCAL EQU SYMBOL INFORMATION       #
+##########################################
+@ NCRT0 ( J:\WorkSpace\Tutorial\FoUSB_UART\M16C\Tutorial\tutorial\debug\ncrt0.r30 )
+@ SORT ( J:\WorkSpace\Tutorial\FoUSB_UART\M16C\Tutorial\tutorial\debug\sort.r30 )
+@ TUTORIAL ( J:\WorkSpace\Tutorial\FoUSB_UART\M16C\Tutorial\tutorial\debug\tutorial.r30 )
+@ BCOPY ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ BZERO ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MALLOC ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MEMCPY ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MEMSET ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ RAND ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ _I4DIV ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ _I4MULU ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+
+##########################################
+# (8) LOCAL EQU BIT-SYMBOL INFORMATION   #
+##########################################
+@ NCRT0 ( J:\WorkSpace\Tutorial\FoUSB_UART\M16C\Tutorial\tutorial\debug\ncrt0.r30 )
+@ SORT ( J:\WorkSpace\Tutorial\FoUSB_UART\M16C\Tutorial\tutorial\debug\sort.r30 )
+@ TUTORIAL ( J:\WorkSpace\Tutorial\FoUSB_UART\M16C\Tutorial\tutorial\debug\tutorial.r30 )
+@ BCOPY ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ BZERO ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MALLOC ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MEMCPY ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ MEMSET ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ RAND ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ _I4DIV ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+@ _I4MULU ( J:\Renesas\NC30WA\V530R02\lib30\nc30lib.lib )
+
